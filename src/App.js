@@ -1,12 +1,12 @@
-import './App.css';
 import Router from "../src/router/Router";
 import React from 'react';
+import { DivContainer } from './GlobalStyle';
 
 function App() {
   return (
-    <div className="App">
+    <DivContainer>
       <Router/>
-    </div>
+      </DivContainer>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Home from '../pages/Home'
-import Login from '../pages/Login'
+import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp'
 import NewImage from '../pages/NewImage'
 const Router = () => {
