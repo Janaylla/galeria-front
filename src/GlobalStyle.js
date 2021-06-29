@@ -16,7 +16,7 @@ export const DivContainer = styled.div`
         box-sizing: border-box;
     }
 `
-export const DivLogin = styled.div`
+export const DivAuthentication = styled.div`
     display: flex;
     height: 100vh;
     align-items: stretch;

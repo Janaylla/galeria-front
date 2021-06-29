@@ -6,7 +6,7 @@ import { useGetToken } from '../../hooks/useGetToken';
 
 function Form() {
     const initialForm = {
-        email: "",
+        login: "",
         password: ""
     }
     const [form, setForm] = useForm(initialForm)
