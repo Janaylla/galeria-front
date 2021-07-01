@@ -34,7 +34,7 @@ function Home() {
           })
         }
       </DivAlbum>
-      {<ImageDetails imageId={imageId}/>}
+      {imageId && <ImageDetails imageId={imageId} setImageId={setImageId}/>}
     </DivContainer>
   );
 }
