@@ -34,7 +34,8 @@ export const Form = styled.form`
 
 `
 export const Button = styled.button`
-
+padding: 0.5rem;
+cursor: pointer;
 `
 
 export const DivAlbum = styled.section`

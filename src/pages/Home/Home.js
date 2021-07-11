@@ -4,29 +4,24 @@ import { DivContainer, DivAlbum, DivPhoto } from '../../GlobalStyle'
 import Header from '../../components/Header/Header';
 import { goToNewImage } from '../../router/coordinator'
 import ImageDetails from '../../components/ImageDetails/ImageDetails';
+import {useRequestData} from '../../hooks/useRequestData';
 function Home() {
   useProtectedPage();
-  const album = [
-    'https://thumbs.dreamstime.com/z/flores-bonitas-aleat%C3%B3rias-91985724.jpg',
-    'https://thumbs.dreamstime.com/z/flores-bonitas-aleat%C3%B3rias-91985724.jpg',
-    'https://thumbs.dreamstime.com/z/flores-bonitas-aleat%C3%B3rias-91985724.jpg',
-    'https://thumbs.dreamstime.com/z/flores-bonitas-aleat%C3%B3rias-91985724.jpg',
-    'https://thumbs.dreamstime.com/z/flores-bonitas-aleat%C3%B3rias-91985724.jpg',
-    'https://thumbs.dreamstime.com/z/flores-bonitas-aleat%C3%B3rias-91985724.jpg',
-  ];
-  const [imageId, setImageId] = useState();
+  
+  const [images, getImages] = useRequestData('/images', 'images', [])
+  const [detailsImageId, setDetailsImageId] = useState(false)
   return (
     <DivContainer>
       <Header text="Nova imagem" goTo={goToNewImage} />
       <DivAlbum>
         {
-          album.map((photo) => {
+          images.map(({id, file, subtitle}) => {
             return (
-              <DivPhoto onClick={() => setImageId(true)}>
-                <img src={photo} />
+              <DivPhoto key={id}>
+                <img src={file} onClick={() => setDetailsImageId(id)}/>
                 <div>
                   <div>
-                    Descrição e tals
+                    {subtitle}
                   </div>
                 </div>
               </DivPhoto>
@@ -34,7 +29,7 @@ function Home() {
           })
         }
       </DivAlbum>
-      {imageId && <ImageDetails imageId={imageId} setImageId={setImageId}/>}
+    {detailsImageId && <ImageDetails imageId={detailsImageId} setImageId={setDetailsImageId}/>}
     </DivContainer>
   );
 }

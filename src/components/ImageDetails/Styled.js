@@ -44,6 +44,9 @@ export const DivIconCancel = styled.div`
   justify-content: flex-end;
   cursor: pointer;
   opacity: 0.5;
+  position: absolute;
+  right:  1rem;
+  top: 1rem;
   >svg{
     width: 2rem;
   }
@@ -51,4 +54,7 @@ export const DivIconCancel = styled.div`
     transition: 1s;
     opacity: 1;
   }
+`
+export const DivInformation = styled.div`
+  margin: 1rem;
 `

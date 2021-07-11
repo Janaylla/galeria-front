@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {colorError, colorSuccess} from '../../GlobalStyle'
+import {colorError, color3} from '../../GlobalStyle'
 export const Input = styled.input`
   width: 100%;
   box-shadow: 0 0 0 0;
@@ -8,10 +8,11 @@ export const Input = styled.input`
   width: calc(100% - 3rem);
   font-size: 1rem;
   letter-spacing: -0.39px;
+  background-color: ${color3};
 `;
 export const Label = styled.label`
   position: absolute;
-  background-color: white;
+  background-color: ${color3};
   bottom: 2.75rem;
   margin: 0 0 0 1rem;
   width: 4.875rem;
