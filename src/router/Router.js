@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Home from '../pages/Home/Home'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
-import NewImage from '../pages/NewImage'
+import NewImage from '../pages/NewImage/NewImage'
 const Router = () => {
     return (
       <BrowserRouter>
