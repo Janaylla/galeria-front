@@ -1,19 +1,22 @@
 import React from "react";
 import { useHistory } from 'react-router-dom'
 import {
-    DivContainer
+    DivContainer,
+    Menu,
+    Option
 } from "./Styled";
-import { Button } from '../../GlobalStyle'
+import {goToHome, goToNewImage, goToCollections} from '../../router/coordinator'
 
-export default function Header({ text, goTo }) {
+export default function Header({ pageCurrent }) {
 
     const history = useHistory()
-    
     return (
         <DivContainer>
-            <Button onClick={() => goTo(history)}>
-                {text}
-            </Button>
+            <Menu>
+                <Option onClick={() => goToHome(history)}>Home</Option>
+                <Option onClick={() => goToCollections(history)}>Coleções</Option>
+                <Option onClick={() => goToNewImage(history)}>Nova imagem</Option>
+            </Menu>
         </DivContainer>
     );
 }
