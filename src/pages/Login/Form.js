@@ -8,11 +8,11 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Form() {
     const initialForm = {
-        email: "",
+        login: "",
         password: ""
     }
     const [form, setForm] = useForm(initialForm)
-    const [post] = useGetToken('/user/login')
+    const [post] = useGetToken('/users/login')
     const history = useHistory()
     const submit = (e) => {
         e.preventDefault();
@@ -23,10 +23,10 @@ function Form() {
             <Input
                 label="Login"
                 placeholder="Escreva seu nickname/email"
-                value={form['email']}
+                value={form['login']}
                 onChange={setForm}
                 type="text"
-                name="email"
+                name="login"
                 error={''}
                 required
             />

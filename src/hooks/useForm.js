@@ -4,8 +4,13 @@ export const useForm = (initialForm) => {
   const [form, setForm] = useState(initialForm);
 
   const onChange = (event) => {
-    const { name, value } = event.target;
-    setForm({ ...form, [name]: value });
+    const { name, value, type, checked } = event.target;
+    if(type === 'checkbox'){
+      setForm({ ...form, [name]: checked });
+    }
+    else{
+      setForm({ ...form, [name]: value });
+    }
   };
   const resetForm = () => {
     setForm(initialForm);

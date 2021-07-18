@@ -13,7 +13,7 @@ function Form() {
         password: ""
     }
     const [form, setForm] = useForm(initialForm)
-    const [post] = useGetToken('/user/signup')
+    const [post] = useGetToken('/users/signup')
     const history = useHistory()
     const submit = (e) => {
         e.preventDefault();

@@ -13,3 +13,9 @@ export const goToSingUp = (history) => {
 export const goToNewImage = (history) => {
   history.push("/new-image");
 };
+export const goToCollections = (history) => {
+  history.push("/collections");
+};
+export const goToCollection = (history, id) => {
+  history.push(`/collections/${id}`);
+};

@@ -14,6 +14,7 @@ export const DivContainer = styled.div`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        list-style: none;
     }
 `
 export const DivAuthentication = styled.div`
@@ -34,5 +35,6 @@ export const Form = styled.form`
 
 `
 export const Button = styled.button`
-
+padding: 0.5rem;
+cursor: pointer;
 `

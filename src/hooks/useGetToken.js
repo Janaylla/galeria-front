@@ -7,7 +7,7 @@ export const useGetToken = (path) => {
         window.localStorage.setItem('token', res.data.token)
         goToHome(history)
     }).catch((err) => {
-      alert("Deu Ruin");
+      alert("Tente novamente");
       console.log(err);
     })
   }
