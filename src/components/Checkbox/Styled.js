@@ -19,4 +19,24 @@ export const DivCheckbox = styled.div`
   *{
     cursor: pointer;
   }
+  >input{
+    display: none;
+  }
+`
+export const H3 = styled.h3
+``
+export const Label = styled.label`
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: solid black 2px;
+  margin: 6px;
+  background-color: ${props => props.checked ? "black" :"white"};
+  color: ${props => props.checked ? "white" :"black"};
+`
+export const DivCheckboxes = styled.div`
+
+display: flex;
+  justify-content: flex-start;
+  
+  flex-wrap: wrap;
 `

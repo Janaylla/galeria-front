@@ -6,9 +6,7 @@ function Login() {
   return (
     <DivAuthentication>
         <div>
-          
-        </div>
-        <div>
+          <h1>Sing Up</h1>
           <Form/>
         </div>
     </DivAuthentication>

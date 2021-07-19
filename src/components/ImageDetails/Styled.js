@@ -16,18 +16,21 @@ export const   DivContainer = styled.div`
     position: absolute;
   }
   >div:last-child{
-    width: 100%;
-    height: 100%;
     background-color: ${color5};
     display: flex;
-    padding: 1rem;
+    padding: 0.5rem;
     position: relative;
+    height: calc(100%);
+    width: calc(100%);
+    justify-items: center;
+    align-items: center;
+    width: 100%;
   }
 `;
 export const DivImg = styled.div`
   border: solid black 1px;
-  width: calc(100vh - 4rem);
-  height: calc(100%);
+  height:100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,21 +41,39 @@ export const DivImg = styled.div`
 `
 export const DivDetails = styled.div`
   flex-grow: 1;
+  position: absolute;
+  width: calc(100% - 1rem);
+  background-color: #000000bb;
+  color:white;
+  height: calc(100% - 1rem);
+  h3{
+    display: flex;
+    margin: 10px;
+    flex-wrap: wrap;
+  h5{
+    border-radius: 20px;
+    padding: 4px 9px;
+    border: solid 2px white;
+    width: auto;
+    margin-left: 10px;
+  }
+}
+  
 `
-export const DivIconCancel = styled.div`
+export const DivIcons = styled.div`
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
-  opacity: 0.5;
   position: absolute;
   right:  1rem;
   top: 1rem;
   >svg{
     width: 2rem;
-  }
-  :hover{
-    transition: 1s;
-    opacity: 1;
+  opacity: 0.5;
+    :hover{
+      transition: 1s;
+      opacity: 1;
+    }
   }
 `
 export const DivInformation = styled.div`

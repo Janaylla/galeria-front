@@ -3,16 +3,19 @@ import {
     DivContainer,
     DivImg,
     DivDetails,
-    DivIconCancel,
+    DivIcons,
     DivInformation
 } from "./Styled";
 import { ReactComponent as Cancel } from "../../assets/cancel_circle.svg";
+import { ReactComponent as MoreInfo } from "../../assets/circle_info.svg";
 import { useRequestData } from '../../hooks/useRequestData'
+import { useState } from "react/cjs/react.development";
+import maskDate from '../../constants/maskDate'
 export default function ImageDetails({setImageId, imageId }) {
     
-  const [image, getImage] = useRequestData(`/images/${imageId}`, 'image', {})
-
-  const {author, collection, date, file, id, subtitle, tags} = image
+  const [image] = useRequestData(`/images/${imageId}`, 'image', {})
+const [showDetails, setShowDetails] = useState(false)
+  const {author, collections, date, file, id, subtitle, tags} = image
   console.log(image)
 
     return (
@@ -21,25 +24,27 @@ export default function ImageDetails({setImageId, imageId }) {
 
             </div>
             <div>
-                {id && <DivImg>
+                { <DivImg>
                     <img src={file}/>
                 </DivImg>}
-                <DivDetails>
-                    {id && <DivInformation>
+                    <DivIcons>
+                        <MoreInfo onClick={() => setShowDetails(true)}/>
+                        <Cancel  onClick={() => setImageId(false)}/>
+                    </DivIcons>
+               {showDetails && <DivDetails>
+                    {id && <DivInformation onClick={() =>  setShowDetails(false)}>
                         <h1>{subtitle}</h1>
-                        <h3>Data: {date}</h3>
+                        <h3>Data: {maskDate(date)}</h3>
                         <h3>Autor: {author.name}</h3>
-                        <h3>Coleções: {collection && collection.map((tag) => {
-                            return tag.name + " "
-                        })}</h3>
-                        <h3>Tags: {tags && tags.map((tag) => {
-                            return tag.name + " "
+                        <h3>Coleções: {collections && collections.map(({name}) => {
+                            return <h5>{name + " "}</h5>
+                        })}
+                        </h3>
+                        <h3>Tags: {tags && tags.map(({name}) => {
+                            return <h5>{name + " "}</h5>
                         })}</h3>
                     </DivInformation>}
-                    <DivIconCancel onClick={() => setImageId(false)}>
-                        <Cancel/>
-                    </DivIconCancel>
-                </DivDetails>
+                </DivDetails>}
             </div>
         </DivContainer>
     );

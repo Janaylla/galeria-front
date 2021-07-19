@@ -1,26 +1,38 @@
 import React from "react";
 import {
   DivFormControl,
-  DivCheckbox
+  DivCheckbox,
+  H3,
+  Label,
+  DivCheckboxes
 } from "./Styled";
 
 export default function Checkbox({
   options,
-  onChange
+  form,
+  onChange,
+  title,
+  prefix
 }) {
   return (
     <DivFormControl>
+      <H3>{title}</H3>
+      <DivCheckboxes>
+
       {
-        options.map((option) => {
+        options.map(({value, text}) => 
+        {
+        const idComplete = prefix+value;
           return (<DivCheckbox>
-            <input name={option.value} 
-              id={option.value} 
+            <input name={idComplete} 
+              id={idComplete} 
               type="checkbox"
               onChange={onChange} />
-            <label for={option.value}>{option.text}</label>
+            <Label for={idComplete} checked={form[idComplete]}>{text}</Label>
           </DivCheckbox>)
         })
       }
+      </DivCheckboxes>
 
     </DivFormControl>
   );

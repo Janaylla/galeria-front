@@ -71,6 +71,8 @@ export const DivSaveCancel = styled.div`
     position: fixed;
     right: 1rem;
     top: 1rem;
-    background-color: white;
     z-index: 1;
+    >button{
+        background-color: white;
+    }
 `

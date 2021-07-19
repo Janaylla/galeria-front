@@ -62,7 +62,7 @@ function Form() {
                 required
             />
             <Button type="submit">
-                Cadastrar
+                Sing Up
             </Button>
             <Button type="button" onClick={() => goToLogin(history)}>
                 Login
