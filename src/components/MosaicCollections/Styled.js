@@ -1,6 +1,6 @@
 import { color5, colorPrimary } from "../../GlobalStyle"
 import styled from 'styled-components'
-export const DivAlbum = styled.section`
+export const DivCollections = styled.section`
 display: flex;
 flex-wrap: wrap;
 align-items: center;
@@ -9,7 +9,7 @@ width: 100%;
 padding: 0.5rem;
 
 `
-export const DivPhoto = styled.div`
+export const DivCollection = styled.div`
 width: 200px;
 height: 200px;
 max-width: 300px;
@@ -46,4 +46,20 @@ cursor:pointer;
         margin: 0%;
     }
 }
+`
+export const DivMoreCollection = styled.div`
+   width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+        width: 70%;
+        cursor: pointer;
+        fill: #000000aa;
+            transition: 0.5s;
+        :hover{
+            fill: #000000ee;
+        }
+    }
 `

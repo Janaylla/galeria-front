@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import { DivAlbum, DivPhoto } from './Styled'
+import { DivCollections, DivCollection, DivMoreCollection } from './Styled'
 import ImageDetails from '../ImageDetails/ImageDetails';
 import { useHistory } from 'react-router-dom'
 import { goToCollection, goToHome } from '../../router/coordinator'
-
-function MosaicCollections({ collections }) {
+import {ReactComponent as AddIcon} from '../../assets/add_circle.svg'
+function MosaicCollections({ collections, setShowModel }) {
   const [detailsImageId, setDetailsImageId] = useState(false)
   const history = useHistory()
 
   return (
     <>
-      <DivAlbum>
+      <DivCollections>
+
         {
-          collections.slice(0, 1).map(({ id, image_file, name, number_of_images }) => {
+          collections.map(({ id, image_file, name, number_of_images }, index) => {
             return (
-              <DivPhoto key={id}>
-                <img src={image_file} onClick={() => goToHome(history)} />
+              <DivCollection key={id}>
+                <img src={image_file} onClick={index != 0 ? () => goToCollection(history, id) : () => goToHome(history)} />
                 <div>
                   <div>
                     <div className="title">
@@ -26,32 +27,16 @@ function MosaicCollections({ collections }) {
                     </div>
                   </div>
                 </div>
-              </DivPhoto>
+              </DivCollection>
             )
           })
         }
-        {
-          collections.length
-          && collections.slice(1).map(({ id, image_file, name, number_of_images }) => {
-            return (
-              <DivPhoto key={id}>
-                <img src={image_file} onClick={() => goToCollection(history, id)} />
-                <div>
-                  <div>
-                    <div className="title">
-                      {name}
-                    </div>
-                    <div className="number">
-                      {number_of_images}
-                    </div>
-                  </div>
-                </div>
-              </DivPhoto>
-            )
-          })
-        }
-      </DivAlbum>
+        <DivMoreCollection>
+          <AddIcon onClick={() => setShowModel(true)}/>
+        </DivMoreCollection>
+      </DivCollections>
       {detailsImageId && <ImageDetails imageId={detailsImageId} setImageId={setDetailsImageId} />}
+      
     </>
   );
 }
