@@ -19,16 +19,23 @@ export const DivContainer = styled.div`
 `
 export const DivAuthentication = styled.div`
     display: flex;
-    height: 100vh;
-    align-items: stretch;
-    > div:first-of-type{
-        flex-grow: 1;
-    }
-    > div:last-of-type{
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: ${color3};
+    > div{
         padding: 3rem;
-        background-color: ${color3};
         display: flex;
         align-items: center;
+        flex-direction: column;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: white;
+        margin: 1rem;
+        h1{
+            color: ${colorPrimary};
+            margin: 20px;
+        }
     }
 `
 export const Form = styled.form`

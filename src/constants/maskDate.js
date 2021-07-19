@@ -6,9 +6,9 @@ export default function maskDate(dt){
 
     stringDate += `/${date.getFullYear()} `
     
-    stringDate += date.getHours() < 10 ? `0${date.getHours()}:` :`${date.getHours()}:`
-
-    stringDate += date.getMinutes() < 10 ? `0${date.getMinutes()}` :`${date.getMinutes()}`
+    stringDate += date.getHours() < 10 ? `0${date.getHours()}h:` :`${date.getHours()}h:`
+ 
+    stringDate += date.getMinutes() < 10 ? `0${date.getMinutes()}min` :`${date.getMinutes()}min`
 
     return (stringDate)
 }

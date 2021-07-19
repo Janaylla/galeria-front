@@ -8,11 +8,11 @@ export const Input = styled.input`
   width: calc(100% - 3rem);
   font-size: 1rem;
   letter-spacing: -0.39px;
-  background-color: ${color3};
+  background-color: white;
 `;
 export const Label = styled.label`
   position: absolute;
-  background-color: ${color3};
+  background-color: white;
   bottom: 2.75rem;
   margin: 0 0 0 1rem;
   width: 4.875rem;

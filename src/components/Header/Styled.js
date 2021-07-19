@@ -26,5 +26,9 @@ export const Menu = styled.ul`
 export const Option = styled.li`
   cursor: pointer;
   font-weight: ${props => props.pageCurrent ?  700 :  400};
-  
+  opacity: 0.9;
+  :hover{
+    opacity: 1;
+    font-weight: 600;
+  }
 `
