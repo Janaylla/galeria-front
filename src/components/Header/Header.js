@@ -5,17 +5,21 @@ import {
     Menu,
     Option
 } from "./Styled";
-import {goToHome, goToNewImage, goToCollections} from '../../router/coordinator'
+import { goToHome, goToNewImage, goToCollections, goToLogin } from '../../router/coordinator'
 
 export default function Header({ pageCurrent }) {
-
     const history = useHistory()
+    const logOut = () => {
+        window.localStorage.removeItem('token')
+        goToLogin(history)
+    }
     return (
         <DivContainer>
             <Menu>
-                <Option onClick={() => goToHome(history)}>Home</Option>
-                <Option onClick={() => goToCollections(history)}>Coleções</Option>
-                <Option onClick={() => goToNewImage(history)}>Nova imagem</Option>
+                <Option pageCurrent={pageCurrent === "Home"} onClick={() => goToHome(history)}>Home</Option>
+                <Option pageCurrent={pageCurrent === "Collections"} onClick={() => goToCollections(history)}>Coleções</Option>
+                <Option pageCurrent={pageCurrent === "NewImage"} onClick={() => goToNewImage(history)}>Nova imagem</Option>
+                <Option onClick={() => logOut()}>Sair</Option>
             </Menu>
         </DivContainer>
     );

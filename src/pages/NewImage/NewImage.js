@@ -6,7 +6,7 @@ function NewImage() {
 
   return (
     <div>
-      <Header text="Página inicial" goTo={goToHome}/>
+      <Header text="Página inicial" goTo={goToHome} pageCurrent="NewImage"/>
       <Form/>
     </div>
   );

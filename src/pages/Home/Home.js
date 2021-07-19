@@ -11,7 +11,7 @@ function Home() {
   const [images, getImages] = useRequestData('/images', 'images', [])
   return (
     <DivContainer>
-      <Header text="Nova imagem" goTo={goToNewImage} />
+      <Header text="Nova imagem" goTo={goToNewImage}pageCurrent="Home" />
       <MosaicImages images={images} />
     </DivContainer>
   );

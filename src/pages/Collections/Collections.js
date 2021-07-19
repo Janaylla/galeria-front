@@ -15,7 +15,7 @@ function Collections() {
 
   return (
     <DivContainer>
-      <Header text="Nova imagem" goTo={goToNewImage} />
+      <Header text="Nova imagem" goTo={goToNewImage} pageCurrent="Collections"/>
       {console.log(collections)}
       <MosaicCollections collections={collections}
         showModel={showModel} setShowModel={setShowModel} />
