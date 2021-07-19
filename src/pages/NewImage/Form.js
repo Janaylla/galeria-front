@@ -2,10 +2,10 @@ import React from 'react';
 import { Form as FormMain, Button } from '../../GlobalStyle';
 import Input from '../../components/Input/Input'
 import { useForm } from '../../hooks/useForm'
-import {useNewImage} from '../../hooks/useRequests'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useNewImage } from '../../hooks/useRequests'
 import { useRequestData } from '../../hooks/useRequestData'
 import Checkbox from '../../components/Checkbox/Checkbox';
+import { DivImg, DivBasicsInformation, DivInputs } from './Styled'
 function Form() {
     const initialForm = {
         subtitle: '',
@@ -18,10 +18,10 @@ function Form() {
     const [newImage] = useNewImage()
     const submit = (e) => {
         console.log(form)
-        const {subtitle, file, collection} = form;
+        const { subtitle, file, collection } = form;
         e.preventDefault();
         const body = {
-            subtitle, file,  
+            subtitle, file,
             collections: collectionsData.filter((tag) => {
                 return form[`collection-${tag.id}`]
             }).map((tag) => {
@@ -38,43 +38,56 @@ function Form() {
     }
     return (
         <FormMain onSubmit={submit}>
-            <Input
-                label="Título"
-                placeholder="Escreva seu título"
-                value={form['subtitle']}
-                onChange={setForm}
-                type="text"
-                name="subtitle"
-                error={''}
-                required
-            />
-            <Input
-                label="Caminho"
-                placeholder="Digite o caminho da imagem"
-                value={form['file']}
-                onChange={setForm}
-                type="text"
-                name="file"
-                error={''}
-                required
-            />
+            <DivBasicsInformation>
+                <DivImg>
+                    <img src={form['file']} />
+                </DivImg>
+                <DivInputs>
+                    <Input
+                        label="Título"
+                        placeholder="Escreva o subtítulo da imagem"
+                        value={form['subtitle']}
+                        onChange={setForm}
+                        type="text"
+                        name="subtitle"
+                        error={''}
+                        required
+                    />
+                    <Input
+                        label="Caminho"
+                        placeholder="Digite o caminho da imagem"
+                        value={form['file']}
+                        onChange={setForm}
+                        type="text"
+                        name="file"
+                        error={''}
+                        required
+                    />
+                </DivInputs>
+            </DivBasicsInformation>
             <Checkbox
                 options={tagsData.map(({ name, id }) => {
                     return {
                         text: name,
-                        value: `tag-${id}`
+                        value: id
                     }
                 })}
                 onChange={setForm}
+                title="Tags"
+                prefix="tag"
+                form={form}
             />
-             <Checkbox
+            <Checkbox
                 options={collectionsData.map(({ name, id }) => {
                     return {
                         text: name,
-                        value: `collection-${id}`
+                        value: id
                     }
                 })}
                 onChange={setForm}
+                title="Coleções"
+                prefix="collection"
+                form={form}
             />
             <Button type="submit">
                 Nova Imagem

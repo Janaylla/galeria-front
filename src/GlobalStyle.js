@@ -37,6 +37,18 @@ export const Form = styled.form`
 export const Button = styled.button`
 padding: 0.5rem;
 cursor: pointer;
+border: 3px solid ${colorPrimary};
+margin: 4px;
+border-radius: 20px;
+font-size: 18px;
+font-weight: 700;
+color: ${colorPrimary};
+background-color: white;
+transition: 0.5s;
+:hover{
+color:white;
+background-color: ${colorPrimary};
+}
 `
 export const MarginTop = styled.div`
 margin-top: 2rem;
