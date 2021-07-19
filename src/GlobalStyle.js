@@ -38,3 +38,18 @@ export const Button = styled.button`
 padding: 0.5rem;
 cursor: pointer;
 `
+export const MarginTop = styled.div`
+margin-top: 2rem;
+`
+export const H2 = styled.h2`
+    font-size: 1rem;
+    text-align: center;
+    a{
+        cursor: pointer;
+        text-decoration: underline;
+        opacity: 0.8;
+        :hoveR{
+            opacity: 1;
+        }
+    }
+`

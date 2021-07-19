@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useProtectedPage } from '../../hooks/useProtectedPage'
-import { DivContainer } from '../../GlobalStyle'
+import { DivContainer, MarginTop } from '../../GlobalStyle'
 import Header from '../../components/Header/Header';
 import { goToNewImage } from '../../router/coordinator'
 import { useRequestData } from '../../hooks/useRequestData';
@@ -21,7 +21,9 @@ function Collections() {
         showModel={showModel} setShowModel={setShowModel} />
       {showModel &&
         <Model show={showModel} setShow={setShowModel}>
+          <MarginTop>         
           <Form updateCollection={getCollections} setShowModel={setShowModel}/>
+          </MarginTop>
         </Model>}
     </DivContainer>
   );

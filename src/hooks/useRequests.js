@@ -40,3 +40,25 @@ export const useNewCollection = (body) => {
   }
   return [newCollection, loading, success]
 }
+export const useEditCollection = (id) => {
+  const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  const EditCollection = (body) => {
+    setLoading(true)
+    setSuccess()
+    axios.put(`${baseUrl}/collections/${id}/images`, body, {
+      headers
+    }).then((res) => {
+      setSuccess(true)
+      setLoading(false)
+    }).catch((err) => {
+      alert("Tente novamente");
+      console.log(err);
+      setSuccess(false)
+      setLoading(false)
+    })
+
+  }
+  return [EditCollection, loading, success]
+}
